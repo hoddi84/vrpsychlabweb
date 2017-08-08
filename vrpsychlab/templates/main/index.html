@@ -1,11 +1,15 @@
 {% extends "main/base.html" %}
 {% block body_block %}
-  <h1>Welcome Home</h1>
+  <h1>JSON Stuff</h1>
 
   <p>{{ json_test.0.participantId }}</p>
 
 {% for desc in json_test.0.json.entries %}
   <p>{{ desc.description }}</p>
 {% endfor %}
+
+<h1>Testing json</h1>
+
+<p>{{ json_test.0.json }}</p>
 
 {% endblock %}

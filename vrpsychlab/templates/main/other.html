@@ -1,7 +1,20 @@
 {% extends "main/base.html" %}
+{% load staticfiles %}
 {% block body_block %}
-  <h1>Welcome Other</h1>
+<h1 class="testheader">Welcome Other</h1>
 
-  <p>{{ dict.0.text }}</p>
+<select class="" id="demo">
+  {% for x in dict %}
+  <option value="{{ x.text }}">{{ x.number }}</option>
+  {% endfor %}
+</select>
+
+<p id="msg">I am number ONE</p>
+
+<p>{{ dict.0.text }}</p>
+
+<script type="text/javascript" src="{% static "js/other_page.js" %}">
+
+</script>
 
 {% endblock %}
