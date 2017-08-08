@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^other/$', views.other, name='other'),
     url(r'^testing/$', views.testing, name='testing'),
+    url(r'^postview/$', views.postview, name='postview'),
 ]
