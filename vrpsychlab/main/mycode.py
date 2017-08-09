@@ -1,4 +1,13 @@
 import datetime
+from django.core.files.storage import FileSystemStorage
+
+def newfile(data):
+    with open("Output.txt", "w") as text_file:
+        text_file.write(data + "YES I AM")
+
+        fs = FileSystemStorage()
+        filename = fs.save("myname", text_file)
+    return filename
 
 # Returns all entries in the JSON file in a list.
 def ReturnJSONAsList(jsonObject):
