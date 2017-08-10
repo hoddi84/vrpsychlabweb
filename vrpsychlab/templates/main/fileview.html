@@ -1,16 +1,21 @@
 {% extends "main/base.html" %}
 {% block body_block %}
 
-<h1>File View</h1>
+<div class="container">
+  <h1>Extract Data</h1>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="myfile">
-    <button type="submit">Upload</button>
-</form>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>File input</label>
+        <input type="file" name="myfile">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Convert</button>
+      </div>
+  </form>
+</div>
 
-  {% if uploaded_file_url %}
-    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-  {% endif %}
+
 
 {% endblock %}

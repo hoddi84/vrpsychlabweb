@@ -1,15 +1,22 @@
 {% extends "main/base.html" %}
 {% block body_block %}
-  <h1>JSON Stuff</h1>
 
-  <p>{{ json_test.0.participantId }}</p>
 
-{% for desc in json_test.0.json.entries %}
-  <p>{{ desc.description }}</p>
-{% endfor %}
+<div style="width:70%" class="">
 
-<h1>Testing json</h1>
+  <h1>Participant Information</h1>
 
-<p>{{ json_test.0.json }}</p>
+  <p>ID: {{ json_test.0.participantId }}</p>
+
+  {% for log in json_test.0.json.entries %}
+  {% if log.description == "Question Marker" %}
+  <li class="list-group-item active">Questions:</li>
+  {% endif %}
+  {% if log.description == "Question Confirmed" %}
+  <li class="list-group-item">Description: ({{ log.description }}) Contents: ({{ log.contents }})</li>
+  {% endif %}
+  {% endfor %}
+</div>
+
 
 {% endblock %}
