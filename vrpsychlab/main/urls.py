@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^testing/$', views.testing, name='testing'),
     url(r'^postview/$', views.postview, name='postview'),
     url(r'^fileview/$', views.fileview, name='fileview'),
+    url(r'^vogabyggd/$', views.vogabyggd, name='vogabyggd'),
 ]

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main.models import MyModel, TestModel, NameModel
+from main.models import MyModel, TestModel, NameModel, VogabyggdModel
 from django.views.generic import TemplateView
 from main.mycode import ReturnJSONAsList, UltimateTest, newfile
 from django.views.decorators.csrf import csrf_exempt
@@ -26,6 +26,11 @@ def other(request):
 def testing(request):
     context_dict = {'testdict':UltimateTest(MyModel.objects.all())}
     return render(request, 'main/testing.html', context=context_dict)
+
+def vogabyggd(request):
+    vogabyggd_data = VogabyggdModel.objects.all()
+    context_dict = {'vogabyggd_data':vogabyggd_data}
+    return render(request, 'main/vogabyggd.html', context=context_dict)
 
 def fileview(request):
     if request.method == 'POST' and request.FILES['myfile']:

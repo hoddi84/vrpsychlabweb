@@ -10,6 +10,14 @@ class MyModel(models.Model):
     def __str__(self):
         return str(self.participantId)
 
+class VogabyggdModel(models.Model):
+    jsonData = JSONField()
+    participantName = models.CharField(max_length=50)
+    participantId = models.BigIntegerField(default=1)
+
+    def __str__(self):
+        return self.participantName
+
 class TestModel(models.Model):
     number = models.IntegerField()
     text = models.CharField(max_length=100)
