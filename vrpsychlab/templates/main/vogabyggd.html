@@ -8,7 +8,7 @@
 
 <form method="post">
   {% csrf_token %}
-  <select >
+  <select>
     {% for x in vogabyggd_data %}
     <option value="30">{{ x.jsonData.procedure.participant.identifier }}</option>
     {% endfor %}
