@@ -18,21 +18,12 @@ def index(request):
     json_dict = {'json_test':json_list}
     return render(request, 'main/index.html', context=json_dict)
 
-def other(request):
-    number_list = TestModel.objects.all()
-    number_dict = {'dict':number_list}
-    return render(request, 'main/other.html', context=number_dict)
-
-def testing(request):
-    context_dict = {'testdict':UltimateTest(MyModel.objects.all())}
-    return render(request, 'main/testing.html', context=context_dict)
-
-def vogabyggd(request):
+def vogabyggdView(request):
     vogabyggd_data = VogabyggdModel.objects.all()
     context_dict = {'vogabyggd_data':vogabyggd_data}
     return render(request, 'main/vogabyggd.html', context=context_dict)
 
-def fileview(request):
+def convertView(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
 
@@ -56,7 +47,7 @@ def fileview(request):
     return render(request, 'main/fileview.html')
 
 @csrf_exempt
-def postview(request):
+def liveView(request):
 
     if request.method == 'POST':
 

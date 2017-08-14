@@ -2,19 +2,6 @@
 {% load staticfiles %}
 {% block body_block %}
 
-<h1>Vogabyggð</h1>
-
-<p>{{ vogabyggd_data.0.jsonData.program }}</p>
-
-<form method="post">
-  {% csrf_token %}
-  <select>
-    {% for x in vogabyggd_data %}
-    <option value="30">{{ x.jsonData.procedure.participant.identifier }}</option>
-    {% endfor %}
-  </select>
-  <input type="submit" value="Retrieve">
-</form>
-
+<h1>Vogabyggð List</h1>
 
 {% endblock %}

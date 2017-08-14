@@ -2,21 +2,4 @@
 {% block body_block %}
 
 
-<div style="width:70%" class="">
-
-  <h1>Participant Information</h1>
-
-  <p>ID: {{ json_test.0.participantId }}</p>
-
-  {% for log in json_test.0.json.entries %}
-  {% if log.description == "Question Marker" %}
-  <li class="list-group-item active">Questions:</li>
-  {% endif %}
-  {% if log.description == "Question Confirmed" %}
-  <li class="list-group-item">Description: ({{ log.description }}) Contents: ({{ log.contents }})</li>
-  {% endif %}
-  {% endfor %}
-</div>
-
-
 {% endblock %}

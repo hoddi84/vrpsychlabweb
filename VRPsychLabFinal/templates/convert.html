@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <h1>Extract Data</h1>
+
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>File input</label>
+        <input type="file" name="myfile">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Convert</button>
+      </div>
+  </form>
+</div>
+
+{% endblock content %}
