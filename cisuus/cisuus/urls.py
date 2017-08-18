@@ -1,4 +1,4 @@
-"""VRPsychLabFinal URL Configuration
+"""cisuus URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -13,17 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
-from . import views
+from main import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.HomePage.as_view(), name="home"),
-    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^test/$', views.TestPage.as_view(), name="test"),
-    url(r'^thanks/$', views.ThanksPage.as_view(), name="thanks"),
-    url(r'^live/$', views.LiveRecordingView, name="live"),
-    url(r'^convert/$', views.ConvertFileView, name="convert"),
+    url(r'^$', views.home_view, name='home'),
+    url(r'^signup/', views.signup_view, name='signup'),
+    url(r'^thanks/', views.thanks_view, name='thanks'),
+    url(r'^success/', views.success_view, name='success'),
+    url(r'^login/', views.login_view, name='login'),
+    url(r'^logout/', views.logout_view, name='logout'),
+    url(r'^convert/', views.convert_view, name='convert'),
+    url(r'^live/', views.live_view, name='live'),
 ]

@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from accounts.mycode import MakeLower
 
@@ -21,9 +22,21 @@ class TestPage(TemplateView):
 class ThanksPage(TemplateView):
     template_name = 'thanks.html'
 
-class LiveRecordingView(TemplateView):
-    template_name = 'live.html'
+@login_required
+def LiveRecordingView(request):
 
+
+    if request.method == 'POST':
+        print("LOL")
+
+        name = request.POST['name']
+        print(name)
+        t.append(name)
+        print(t)
+
+    return render(request, 'live.html')
+
+@login_required
 def ConvertFileView(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
